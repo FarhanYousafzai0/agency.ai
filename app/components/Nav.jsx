@@ -4,12 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react"
 import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 
-const Nav = ({theme,setTheme}) => {
+const Nav = ({ theme, setTheme }) => {
+  const pathName = usePathname();
 
-    
-
-    const [menuOpen,setMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false);
   const navLinks = [
     { name: "Home", id: "home" },
     { name: "Service", id: "service" },
@@ -18,35 +18,42 @@ const Nav = ({theme,setTheme}) => {
   ];
 
   return (
-    <nav className="flex w-full py-4 px-3 sticky top-0  z-20 backdrop-blur-2xl  bg-white/50  font-normal items-center justify-between sm:px-10 ">
+    <nav className="flex w-full py-4 px-3 sticky top-0 z-20 backdrop-blur-2xl bg-white/50 font-normal items-center justify-between sm:px-10">
       {/* Logo */}
       <div>
         <Image src={theme == "dark" ? "/logo_dark.svg" : "/logo.svg"} width={150} height={150} alt="Logo" />
       </div>
 
       {/* Navigation Links */}
-      <div className="md:flex gap-6 hidden ">
-        {navLinks.map((link, index) => (
-          <Link
-            key={index}
-            href={`/#${link.id}`}
-            scroll={true} // Ensures smooth scrolling in Next.js
-            className="text-gray-700  font-medium transition-colors"
-          >
-            {link.name}
-          </Link>
-        ))}
-
-      
+      <div className="md:flex gap-6 hidden">
+        {navLinks.map((link, index) => {
+          // Check if the current pathName matches the link id (for hash navigation)
+          const isActive =
+            pathName === `/${link.id}` ||
+            pathName === link.id ||
+            pathName.startsWith(`/${link.id}/`) ||
+            pathName.startsWith(`${link.id}/`);
+          return (
+            <Link
+              key={index}
+              href={`/#${link.id}`}
+              scroll={true} // Ensures smooth scrolling in Next.js
+              className={`px-4 py-2 rounded-full transition-colors duration-200 ${
+                isActive ? "bg-blue-500 text-white" : ""
+              }`}
+            >
+              {link.name}
+            </Link>
+          );
+        })}
       </div>
 
-  
-
-      <Link href="#conatct-us" >
-      <button className="bg-[#5044E5] text-white cursor-pointer transition-all hover:scale-105 px-6 lg:flex items-center gap-2 py-2 rounded-full text-sm  hidden  ">
-        Connect 
-        <Image src={assets.arrow_icon} alt="arrow right" width={18} height={18} />
-      </button>
+      {/* Desktop Connect Button */}
+      <Link href="#conatct-us" className="hidden lg:flex">
+        <button className="bg-[#5044E5] text-white cursor-pointer transition-all hover:scale-105 px-6 items-center gap-2 py-2 rounded-full text-sm flex">
+          Connect
+          <Image src={assets.arrow_icon} alt="arrow right" width={18} height={18} />
+        </button>
       </Link>
 
       {/* Hamburger / Close Icon */}
@@ -66,62 +73,61 @@ const Nav = ({theme,setTheme}) => {
 
       {/* Mobile Nav Drawer */}
       <AnimatePresence>
-  {menuOpen && (
-    <motion.div
-      initial={{ x: -300, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      exit={{ x: -300, opacity: 0 }}
-      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      className="absolute top-0 left-0 w-3/4 max-w-xs h-screen z-50 bg-white  flex flex-col justify-between shadow-2xl"
-    >
-      {/* Top section with logo & close button */}
-      <div className="flex items-center justify-between px-6 py-4 border-b border-white/20">
-        <Image
-          src="/logo.svg"
-          alt="Logo"
-          width={120}
-          height={40}
-          className="object-contain"
-        />
-        <button
-          onClick={() => setMenuOpen(false)}
-          aria-label="Close menu"
-          className="p-2 rounded-full bg-[#5044E5] cursor-pointer  transition"
-        >
-          <Image
-            src={assets.close_icon}
-            alt="Close menu"
-            width={18}
-            height={18}
-          />
-        </button>
-      </div>
-
-      {/* Navigation links */}
-      <div className="flex flex-col gap-6 px-6 ">
-        {navLinks.map((link, index) => (
-          <Link
-            key={index}
-            href={`/#${link.id}`}
-            scroll={true}
-            className="text-black text-lg font-semibold  transition"
-            onClick={() => setMenuOpen(false)}
+        {menuOpen && (
+          <motion.div
+            initial={{ x: -300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -300, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="absolute top-0 left-0 w-3/4 max-w-xs h-screen z-50 bg-white flex flex-col justify-between shadow-2xl"
           >
-            {link.name}
-          </Link>
-        ))}
-      </div>
+            {/* Top section with logo & close button */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-white/20">
+              <Image
+                src="/logo.svg"
+                alt="Logo"
+                width={120}
+                height={40}
+                className="object-contain"
+              />
+              <button
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+                className="p-2 rounded-full bg-[#5044E5] cursor-pointer transition"
+              >
+                <Image
+                  src={assets.close_icon}
+                  alt="Close menu"
+                  width={18}
+                  height={18}
+                />
+              </button>
+            </div>
 
-      {/* Bottom connect button */}
-      <div className="px-6 py-5 border-t border-white/20">
-        <button className="w-full text-white bg-[#5044E5] flex items-center justify-center hover:scale-105 transition-all gap-2 font-semibold py-2 rounded-lg  cursor-pointer ">
-          Connect  <Image src={assets.arrow_icon} alt="arrow right" width={18} height={18} />
-        </button>
-      </div>
-    </motion.div>
-  )}
-</AnimatePresence>
+            {/* Navigation links */}
+            <div className="flex flex-col gap-6 px-6">
+              {navLinks.map((link, index) => (
+                <Link
+                  key={index}
+                  href={`/#${link.id}`}
+                  scroll={true}
+                  className="text-black text-lg font-semibold transition"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
 
+            {/* Bottom connect button */}
+            <div className="px-6 py-5 border-t border-white/20">
+              <button className="w-full text-white bg-[#5044E5] flex items-center justify-center hover:scale-105 transition-all gap-2 font-semibold py-2 rounded-lg cursor-pointer">
+                Connect <Image src={assets.arrow_icon} alt="arrow right" width={18} height={18} />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
