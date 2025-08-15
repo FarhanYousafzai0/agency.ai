@@ -162,23 +162,14 @@ const Nav = () => {
 
             {/* Bottom section with theme toggle & connect button */}
             <div className="px-6 py-5 border-t border-white/20 dark:border-neutral-700 flex items-center gap-3">
-              <button
-                onClick={toggleTheme}
-                className="p-2 rounded-full border hover:scale-105 transition-all dark:border-neutral-700"
-              >
-                {mounted &&
-                  (theme === "dark" ? (
-                    <Sun className="w-5 h-5 text-yellow-400" />
-                  ) : (
-                    <Moon className="w-5 h-5 text-gray-800" />
-                  ))}
-              </button>
+              <ThemeSwitch/>
               <button className="flex-1 text-white bg-[#5044E5] flex items-center justify-center hover:scale-105 transition-all gap-2 font-semibold py-2 rounded-lg cursor-pointer">
                 Connect{" "}
                 <Image
                   src={assets.arrow_icon}
                   alt="arrow right"
                   width={18}
+                  className="dark:brightness-200"
                   height={18}
                 />
               </button>

@@ -41,3 +41,8 @@ body {
   font-family: var(--font-manrope), sans-serif;
   transition: background 0.3s, color 0.3s; /* smooth theme change */
 }
+
+
+::-webkit-scrollbar {
+display: none !important;
+}
