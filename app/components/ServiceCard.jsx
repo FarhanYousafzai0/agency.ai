@@ -1,17 +1,22 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 
 const ServiceCard = ({ services }) => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+
   return (
     <div
-      className="relative overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-2xl dark:shadow-white/10 max-w-lg m-2"
+   
+      className="relative overflow-hidden  rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-2xl dark:shadow-white/10 max-w-lg m-2"
+      
     >
-      {/* Gradient Border */}
+      {/* Gradient Border on Hover */}
       <div
-        className="absolute pointer-events-none hover:opacity-100 rounded-full blur-2xl bg-gradient-to-r from-pink-500 via-indigo-500 to-purple-500  w-[300px] h-[400px] z-0"
+        className="absolute pointer-events-none rounded-full blur-2xl bg-gradient-to-r from-pink-500  via-indigo-500 to-purple-500 transition-opacity  duration-500 mix-blend-lighten w-[300px] h-[400px] z-0 "
         style={{
-          top: 0,
-          left: 0,
+            top:position.y - 150,
+            left:position.x - 150,
         }}
       />
 

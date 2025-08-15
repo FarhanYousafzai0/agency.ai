@@ -13,8 +13,7 @@ const Nav = () => {
   const pathName = usePathname();
   const { theme, setTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false); // Prevents hydration issues
-
+  const [mounted, setMounted] = useState(false); 
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -23,7 +22,7 @@ const Nav = () => {
     { name: "Home", id: "nav" },
     { name: "Service", id: "services" },
     { name: "Testimonial", id: "testimonial" },
-    { name: "Our Work", id: "our-work" },
+    { name: "Our Work", id: "work" },
   ];
 
   // Toggle theme

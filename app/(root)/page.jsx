@@ -4,6 +4,7 @@ import Nav from '../components/Nav'
 import Hero from '../components/Hero'
 import Companies from '../components/Companies'
 import Services from '../components/Services'
+import Work from '../components/Work'
 
 const page = () => {
 
@@ -14,6 +15,7 @@ const page = () => {
         <Hero/>
         <Companies/>
         <Services/>
+        <Work/>
       </section>
     </>
   )

@@ -28,7 +28,7 @@ const Services = () => {
       ];
   return (
     <>
-      <section id='services' className='relative h-screen flex flex-col items-center gap-6 px-4 sm:px-12 lg:px-24 xl:px-40 pt-30 text-gray-700 dark:text-white'>
+      <section id='services' className='relative h-auto flex flex-col items-center gap-6 px-4 sm:px-12 lg:px-24 xl:px-40 pt-30 text-gray-700 dark:text-white'>
 
       <img src="/bgImage2.png" alt="Gradient_image" className='w-full absolute -z-1 -top-110 -left-70 dark:hidden' />
 <Title title='How can we help ?' desc='From strategy to execution, we craft digital solutions that move your business forward.'/>
