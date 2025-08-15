@@ -32,7 +32,7 @@ const Nav = () => {
   };
 
   return (
-    <nav className="flex w-full py-4 px-3 rounded-md sticky top-0 z-20 backdrop-blur-2xl bg-white/50 dark:bg-black/50 font-normal items-center justify-between sm:px-10">
+    <nav id="nav" className="flex w-full py-4 px-3 rounded-md sticky top-0 z-20 backdrop-blur-2xl bg-white/50 dark:bg-black/50 font-normal items-center justify-between sm:px-10">
       {/* Logo */}
       <div>
         <Image

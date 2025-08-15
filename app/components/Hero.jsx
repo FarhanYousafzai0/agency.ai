@@ -5,7 +5,7 @@ import React from 'react'
 const Hero = () => {
   return (
     <>
-      <section className='h-auto  w-full py-10  mt-10 flex flex-col items-center text-center dark:text-white text-gray-700  gap-6 sm:px-14 lg:px-22 xl:px-40 overflow-hidden  '>
+      <section id='hero' className='h-auto  w-full py-10  mt-10 flex flex-col items-center text-center dark:text-white text-gray-700  gap-6 sm:px-14 lg:px-22 xl:px-40 overflow-hidden  '>
 <div className='inline-flex items-center rounded-full gap-1 pr-4 p-1.5 border border-neutral-200 '>
 <Image src={assets.group_profile} width={100} height={100} alt='Group-Profile'/>
 <p className='text-xs font-medium'>Trusted by 10k+ people.</p>
@@ -20,7 +20,7 @@ const Hero = () => {
 
 <div className='relative '>
 <img  src="/hero_img.png" loading='lazy' className='w-full max-w-6xl' alt="" />
-<img src="/bgImage1.png" alt="Gradient_image" className='w-full absolute -z-1 -top-40 -right-40 sm:-top-100 sm:-right-70 dark:hidden' />
+<img src="/bgImage1.png" alt="Gradient_image" className='w-full absolute -z-1 -top-40 -right-50 sm:-top-100 sm:-right-70 dark:hidden' />
 </div>
 
 
