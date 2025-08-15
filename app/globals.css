@@ -6,7 +6,8 @@
 }
 
 .dark {
-  --background: #171717;
+  --background: black
+  ;
   --foreground: #ffffff;
 }
 

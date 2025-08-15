@@ -20,8 +20,8 @@ const Nav = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", id: "home" },
-    { name: "Service", id: "service" },
+    { name: "Home", id: "nav" },
+    { name: "Service", id: "services" },
     { name: "Testimonial", id: "testimonial" },
     { name: "Our Work", id: "our-work" },
   ];
