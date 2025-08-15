@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "next-themes";
 
 // Geist Sans
 const geistSans = Geist({
@@ -31,7 +32,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable}  ${geistMono.variable} ${manrope.variable} antialiased`}
       >
-        {children}
+       <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true}>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
