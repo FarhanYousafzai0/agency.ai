@@ -1,23 +1,26 @@
 "use client"
 import React from "react";
 import Image from "next/image";
-import {
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
-} from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 border-t">
+    <footer className="bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 gap-8">
         
         {/* Left Section */}
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 w-6 h-6 rounded-sm"></div>
-            <span className="text-xl font-bold">agency.ai</span>
+            <Image
+              src="/logo.svg"
+              alt="agency.ai logo"
+              width={100}
+              height={100}
+              
+              priority
+            />
+            
           </div>
           <p className="text-gray-600 max-w-md">
             From strategy to execution, we craft digital solutions that move your business forward.
@@ -55,14 +58,22 @@ export default function Footer() {
       </div>
 
       {/* Bottom Section */}
-      <div className="border-t py-6 px-6 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
+      <div className="border-t border-neutral-200 py-6 px-6 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
         <p>Copyright 2025 © GreatStack - All Rights Reserved.</p>
 
         <div className="flex gap-4 mt-4 md:mt-0">
-          <a href="#"><FaFacebookF /></a>
-          <a href="#"><FaTwitter /></a>
-          <a href="#"><FaInstagram /></a>
-          <a href="#"><FaLinkedinIn /></a>
+          <a href="#" aria-label="Facebook">
+            <Facebook className="w-5 h-5 hover:text-indigo-600 transition" />
+          </a>
+          <a href="#" aria-label="Twitter">
+            <Twitter className="w-5 h-5 hover:text-indigo-600 transition" />
+          </a>
+          <a href="#" aria-label="Instagram">
+            <Instagram className="w-5 h-5 hover:text-indigo-600 transition" />
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <Linkedin className="w-5 h-5 hover:text-indigo-600 transition" />
+          </a>
         </div>
       </div>
     </footer>
