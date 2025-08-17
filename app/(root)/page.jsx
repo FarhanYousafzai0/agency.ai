@@ -5,6 +5,7 @@ import Hero from '../components/Hero'
 import Companies from '../components/Companies'
 import Services from '../components/Services'
 import Work from '../components/Work'
+import Team from '../components/Team'
 
 const page = () => {
 
@@ -16,6 +17,7 @@ const page = () => {
         <Companies/>
         <Services/>
         <Work/>
+        <Team/>
       </section>
     </>
   )
