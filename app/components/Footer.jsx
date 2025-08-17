@@ -6,7 +6,7 @@ import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F8FAFC]">
+    <footer className="bg-[#F8FAFC] dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 gap-8">
         
         {/* Left Section */}
@@ -15,8 +15,8 @@ export default function Footer() {
             <Image
               src="/logo.svg"
               alt="agency.ai logo"
-              width={100}
-              height={100}
+              width={150}
+              height={150}
               
               priority
             />
@@ -26,12 +26,12 @@ export default function Footer() {
             From strategy to execution, we craft digital solutions that move your business forward.
           </p>
 
-          <nav className="flex gap-6 mt-6 text-gray-700 font-medium">
+          <div className="flex flex-col gap-2 mt-6 text-gray-700 font-medium">
             <a href="#">Home</a>
             <a href="#">Services</a>
             <a href="#">Our Work</a>
             <a href="#">Contact Us</a>
-          </nav>
+          </div>
         </div>
 
         {/* Right Section */}
