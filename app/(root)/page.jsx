@@ -6,19 +6,23 @@ import Companies from '../components/Companies'
 import Services from '../components/Services'
 import Work from '../components/Work'
 import Team from '../components/Team'
+import Contact from '../components/Contact'
+import Footer from '../components/Footer'
 
 const page = () => {
 
   return (
     <>
-      <section className='lg:w-[90%]  mx-auto relative '>
+      <div className='lg:w-[90%]  mx-auto relative '>
         <Nav />
         <Hero/>
         <Companies/>
         <Services/>
         <Work/>
         <Team/>
-      </section>
+        <Contact/>
+      </div>
+      <Footer/>
     </>
   )
 }

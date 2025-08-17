@@ -5,7 +5,7 @@ import { teamData } from '@/public/assets'
 
 const Team = () => {
   return (
-    <section id='team' className='relative h-screen flex flex-col items-center gap-6 px-4 sm:px-12 lg:px-24 xl:px-40 pt-30 text-gray-700 dark:text-white'>
+    <div id='team' className='relative h-auto flex flex-col items-center gap-6 px-4 sm:px-12 lg:px-24 xl:px-40 pt-30 text-gray-700 dark:text-white'>
 
         <Title title="Meet the team" desc="A passionate team of digital experts dedicated to your brands success"/>
       
@@ -16,13 +16,13 @@ const Team = () => {
 <img src={team.image} alt=""  className='w-12 h-12 rounded-full' />
 
 <div className="flex-1">
-    <h1 className='font-semibold text-sm'>{team.name}</h1>
+    <div className='font-semibold text-sm'>{team.name}</div>
     <p className='text-xs opacity-75'>{team.title}</p>
     <p></p>
 </div>
         </div>))}
       </div>
-    </section >
+    </div >
   )
 }
 
