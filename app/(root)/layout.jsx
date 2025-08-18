@@ -2,6 +2,8 @@
 
 import Lenis from "lenis";
 import { useEffect } from "react";
+import CustomDot from "../components/CustomDot";
+
 
 
 
@@ -32,7 +34,10 @@ export default function RootLayout({ children }) {
       <body
        className="[--pattern-fg:var(--color-neutral-50)]"
       >
+        <div className="relative">
         {children}
+       <CustomDot/>
+        </div>
       </body>
     </html>
   );
